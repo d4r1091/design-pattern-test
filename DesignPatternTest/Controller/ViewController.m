@@ -9,12 +9,16 @@
 #import "ViewController.h"
 #import "LibraryAPI.h"
 #import "Album+TableRepresentation.h"
+#import "HorizontalScroller.h"
+#import "AlbumView.h"
 
-@interface ViewController ()  <UITableViewDataSource, UITableViewDelegate> {
+@interface ViewController ()  <UITableViewDataSource, UITableViewDelegate, HorizontalScrollerDelegate> {
     UITableView *dataTableView;
     NSArray *allAlbums;
     NSDictionary *currentAlbumData;
-    int currentAlbumIndex;
+    NSUInteger currentAlbumIndex;
+    
+    HorizontalScroller *scroller;
 }
 
 @end
@@ -29,6 +33,7 @@
     
     allAlbums = [[LibraryAPI sharedInstance] getAlbums];
     [self setupTableView];
+    [self setupScroller];
     
     [self showDataForAlbumAtIndex:currentAlbumIndex];
 }
@@ -46,7 +51,17 @@
     [self.view addSubview:dataTableView];
 }
 
-- (void)showDataForAlbumAtIndex:(int)albumIndex
+- (void)setupScroller {
+    
+    scroller = [[HorizontalScroller alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 120)];
+    scroller.backgroundColor = [UIColor colorWithRed:0.24f green:0.35f blue:0.49f alpha:1];
+    scroller.delegate = self;
+    [self.view addSubview:scroller];
+    
+    [self reloadScroller];
+}
+
+- (void)showDataForAlbumAtIndex:(NSUInteger)albumIndex
 {
     // defensive code: make sure the requested index is lower than the amount of albums
     if (albumIndex < allAlbums.count)
@@ -85,5 +100,35 @@
     
     return cell;
 }
+
+- (void)reloadScroller
+{
+    allAlbums = [[LibraryAPI sharedInstance] getAlbums];
+    if (currentAlbumIndex >= allAlbums.count) currentAlbumIndex = allAlbums.count-1;
+    [scroller reload];
+    
+    [self showDataForAlbumAtIndex:currentAlbumIndex];
+}
+
+#pragma mark - HorizontalScrollerDelegate methods
+
+- (void)horizontalScroller:(HorizontalScroller *)scroller clickedViewAtIndex:(int)index
+{
+    currentAlbumIndex = index;
+    [self showDataForAlbumAtIndex:index];
+}
+
+- (NSInteger)numberOfViewsForHorizontalScroller:(HorizontalScroller*)scroller
+{
+    return allAlbums.count;
+}
+
+- (UIView*)horizontalScroller:(HorizontalScroller*)scroller viewAtIndex:(int)index
+{
+    Album *album = allAlbums[index];
+    return [[AlbumView alloc] initWithFrame:CGRectMake(0, 0, 100, 100) albumCover:album.coverUrl];
+}
+
+
 
 @end
