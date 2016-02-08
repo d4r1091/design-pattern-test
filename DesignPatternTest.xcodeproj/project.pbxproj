@@ -20,6 +20,7 @@
 		2CBCFDD91C68BDDA005BCE51 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCFDD81C68BDDA005BCE51 /* DatabaseManager.m */; };
 		2CBCFDDC1C68C0FD005BCE51 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCFDDB1C68C0FD005BCE51 /* LibraryAPI.m */; };
 		2CBCFDDF1C68C319005BCE51 /* Album+TableRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCFDDE1C68C319005BCE51 /* Album+TableRepresentation.m */; };
+		2CBCFDE21C68C4D4005BCE51 /* HorizontalScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCFDE11C68C4D4005BCE51 /* HorizontalScroller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		2CBCFDDB1C68C0FD005BCE51 /* LibraryAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryAPI.m; sourceTree = "<group>"; };
 		2CBCFDDD1C68C319005BCE51 /* Album+TableRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Album+TableRepresentation.h"; sourceTree = "<group>"; };
 		2CBCFDDE1C68C319005BCE51 /* Album+TableRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Album+TableRepresentation.m"; sourceTree = "<group>"; };
+		2CBCFDE01C68C4D4005BCE51 /* HorizontalScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalScroller.h; sourceTree = "<group>"; };
+		2CBCFDE11C68C4D4005BCE51 /* HorizontalScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalScroller.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 			children = (
 				2CBCFDC61C68B2E2005BCE51 /* AlbumView.h */,
 				2CBCFDC71C68B2E2005BCE51 /* AlbumView.m */,
+				2CBCFDE01C68C4D4005BCE51 /* HorizontalScroller.h */,
+				2CBCFDE11C68C4D4005BCE51 /* HorizontalScroller.m */,
 			);
 			path = ViewElements;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				2CBCFDA11C68AD94005BCE51 /* AppDelegate.m in Sources */,
 				2CBCFD9E1C68AD94005BCE51 /* main.m in Sources */,
 				2CBCFDC41C68B0F5005BCE51 /* Album.m in Sources */,
+				2CBCFDE21C68C4D4005BCE51 /* HorizontalScroller.m in Sources */,
 				2CBCFDD21C68B4BD005BCE51 /* NetworkManager.m in Sources */,
 				2CBCFDDF1C68C319005BCE51 /* Album+TableRepresentation.m in Sources */,
 				2CBCFDDC1C68C0FD005BCE51 /* LibraryAPI.m in Sources */,
